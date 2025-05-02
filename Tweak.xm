@@ -1,9 +1,10 @@
-%hook SpringBoard
+#import <Foundation/Foundation.h>
 
-- (void)applicationDidFinishLaunching:(id)application {
-    %orig;
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"TAHWD-78912-UYIAD-21876"];
+
+__attribute__((constructor))
+static void init() {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"TAHWD-78912-UYIAD-21876"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-%end
+
