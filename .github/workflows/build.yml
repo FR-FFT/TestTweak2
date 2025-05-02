@@ -36,8 +36,8 @@ jobs:
         echo "filename=$(find . -name '*debug*' -path './packages/*' | cut -d/ -f3)" >> $GITHUB_ENV
     - uses: actions/upload-artifact@v4
       with:
-        name: ${{env.filename}}
-        path: packages/${{env.filename}}
+        name: release-package
+        path: packages/
         if-no-files-found: error
 
     - name: Build Tweak (rootful)
@@ -46,8 +46,8 @@ jobs:
         echo "filename=$(find . -not -name '*debug*' -path './packages/*' | cut -d/ -f3)" >> $GITHUB_ENV
     - uses: actions/upload-artifact@v4
       with:
-        name: ${{env.filename}}
-        path: packages/${{env.filename}}
+        name: rootful-package
+        path: packages/
         if-no-files-found: error
 
     - name: Build Tweak (rootless)
@@ -56,6 +56,6 @@ jobs:
         echo "filename=$(find . -name '*arm64*' -path './packages/*' | cut -d/ -f3)" >> $GITHUB_ENV
     - uses: actions/upload-artifact@v4
       with:
-        name: ${{env.filename}}
-        path: packages/${{env.filename}}
+        name: rootless-package
+        path: packages/
         if-no-files-found: error
