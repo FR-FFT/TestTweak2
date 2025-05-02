@@ -1,0 +1,9 @@
+Package: com.example.mytweak
+Name: MyTweak
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Tweak
+Maintainer: Foo
+Author: Bar
+Section: Tweaks
+Depends: firmware (>= 14.0)
