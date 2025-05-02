@@ -30,9 +30,9 @@ jobs:
         brew install make dpkg ldid
         echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
-    - name: Build Tweak (debug)
+    - name: Build Tweak (release)
       run: |
-        make package
+        make package FINALPACKAGE=1
         echo "filename=$(find . -name '*debug*' -path './packages/*' | cut -d/ -f3)" >> $GITHUB_ENV
     - uses: actions/upload-artifact@v4
       with:
